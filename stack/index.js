@@ -28,6 +28,10 @@ class Stack{
     clear(){
         this.stack = []
     }
+
+    contains(data){
+        return this.stack.includes(data)
+    }
 }
 
 // usage example 
@@ -38,6 +42,10 @@ myStack.push(20)
 myStack.push(10)
 myStack.push(30)
 myStack.push(90)
+
+const res = myStack.contains(90);
+
+console.log(res);
 
 console.log(myStack);
 
