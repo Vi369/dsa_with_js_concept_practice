@@ -92,3 +92,23 @@ LinkedList.prototype.deleteFirstNode = function(){
 
     this.head = this.head.next;
 }
+
+// delete last node 
+LinkedList.prototype.deleteLastNode = function(){
+    if(!this.head){ // if list is empty
+        throw new Error("List is Empty!")
+    }
+
+    if(!this.head.next){ // if there is only one node in the list 
+        this.head = null;
+        return
+    }
+
+    let secondLast = this.head;
+
+    while(this.head.next.next){
+        secondLast = secondLast.next
+    }
+
+    secondLast.next = null; // this.head.next = null
+}
