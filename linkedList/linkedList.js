@@ -82,3 +82,13 @@ LinkedList.prototype.insertGivenAt = function(previousNode, data){
     const newNode = new Node(data, previousNode.next);
     previousNode.next = newNode;
 }
+
+
+// delete first node (unlink)
+LinkedList.prototype.deleteFirstNode = function(){
+    if(!this.head){
+        throw new Error("List Empty!")
+    }
+
+    this.head = this.head.next;
+}
