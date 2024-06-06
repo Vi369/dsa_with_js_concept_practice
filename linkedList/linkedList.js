@@ -14,9 +14,9 @@ class LinkedList{
 
 // insert data at beginning
 LinkedList.prototype.insertAtBeginning = function(data){
-    const newNode = new Node(data);
-    this.head = newNode;
-    return this.head;
+    const newNode = new Node(data); // create a new node 
+    this.head = newNode; // add head point the new node
+    return this.head; // return the head value (data)
 }
 
 // insert at the end
