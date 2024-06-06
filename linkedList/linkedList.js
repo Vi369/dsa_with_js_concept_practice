@@ -112,3 +112,36 @@ LinkedList.prototype.deleteLastNode = function(){
 
     secondLast.next = null; // this.head.next = null
 }
+
+// delete by given key
+LinkedList.prototype.deleteByKey = function(key){
+    if(!this.head){
+        throw new Error("Empty list");
+    }
+
+    if(this.head.data === key){
+        this.head = this.head.next;
+        return;
+    }
+
+    let currentNode = this.head;
+    while(!currentNode.next.data === key){
+        if(currentNode.next === null){
+            throw new Error("Key not Found in list")
+        }
+        currentNode = currentNode.next;
+    }
+    currentNode.next = currentNode.next.next;
+
+
+    // sir jii wala logic 
+    while(currentNode.next !==null){
+        if(currentNode.next.data === key){
+            currentNode.next = currentNode.next.next;
+            return ;
+        }
+        currentNode = currentNode.next;
+    }
+
+
+}
