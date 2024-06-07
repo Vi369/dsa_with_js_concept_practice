@@ -145,3 +145,21 @@ LinkedList.prototype.deleteByKey = function(key){
 
 
 }
+
+
+
+// search given key node data 
+LinkedList.prototype.search = function(key){
+    let current = this.head
+    if(!current){
+        throw new Error("List is Empty!")
+    }
+
+    while(current){
+        if(current.data === key){
+            return true
+        }
+    }
+
+    return false
+}
