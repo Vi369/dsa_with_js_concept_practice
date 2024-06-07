@@ -177,19 +177,20 @@ LinkedList.prototype.printList = function(){
         dataArray.push(current.data)
         current = current.next;
     }
-    return dataArray.join("-->")
+    return dataArray;
 }
 
 const list = new LinkedList();
 
-list.insertAtBeginning(10)
-list.insertAtBeginning(20)
-list.insertAtEnd(30)
-list.insertAtEnd(50)
-
+list.insertAtBeginning({ name: "Alice", age: 30 })
+list.insertAtBeginning({ name: "Bob", age: 25 })
+// list.insertAtEnd({c:30})
+// list.insertAtEnd({d:50})
 
 const printList = list.printList();
 
-console.log(printList);
+printList.forEach((data)=>{
+    console.log(data)
+})
 
 console.log(JSON.stringify(list));
