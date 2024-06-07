@@ -17,7 +17,7 @@ LinkedList.prototype.insertAtBeginning = function(data){
     const newNode = new Node(data); // create a new node 
     newNode.next = this.head; // newNode next poit to the priviously first element
     this.head = newNode; // add head point the new node
-    return this.head; // return the head value (data)
+    // return this.head; // return the head value (data)
 }
 
 // insert at the end
@@ -26,7 +26,7 @@ LinkedList.prototype.insertAtEnd = function(data) {
   
     if (!this.head) { // Check if the list is empty
       this.head = newNode; // If empty, set the new node as the head
-      return;
+      return this.head;
     }
   
     let last = this.head; // Start iterating from the head
@@ -163,3 +163,33 @@ LinkedList.prototype.search = function(key){
 
     return false
 }
+
+
+// traversal 
+LinkedList.prototype.printList = function(){
+    let current = this.head;
+    if(!current){
+        throw new Error("List is Empty!")
+    }
+
+    let dataArray = []
+    while(current){
+        dataArray.push(current.data)
+        current = current.next;
+    }
+    return dataArray.join("-->")
+}
+
+const list = new LinkedList();
+
+list.insertAtBeginning(10)
+list.insertAtBeginning(20)
+list.insertAtEnd(30)
+list.insertAtEnd(50)
+
+
+const printList = list.printList();
+
+console.log(printList);
+
+console.log(JSON.stringify(list));
