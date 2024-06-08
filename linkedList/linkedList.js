@@ -180,6 +180,21 @@ LinkedList.prototype.printList = function(){
     return dataArray;
 }
 
+LinkedList.prototype.reverseList = function(){
+    let current = this.head; 
+    let prev = null;
+    let next = null;
+
+    while(current){
+        next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+    }
+
+    this.head = prev;
+}
+
 const list = new LinkedList();
 
 list.insertAtBeginning({ name: "Alice", age: 30 })
@@ -193,4 +208,9 @@ printList.forEach((data)=>{
     console.log(data)
 })
 
+// reverse the list 
+list.reverseList()
+
 console.log(JSON.stringify(list));
+
+
