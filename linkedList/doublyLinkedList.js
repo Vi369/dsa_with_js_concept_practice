@@ -15,20 +15,7 @@ class DoublyLinkedList{
 }
 
 
-// DoublyLinkedList.prototype.insertAtBeginning = function(data){
-//     const newNode = new Node(data, this.head, null);
-//     if(!this.head){ // if node null
-//         this.head = newNode; // head value point newNode 
-//         this.tail = newNode; // tail also point newNode
-//         return;
-//     }else{// if head is not null then 
-//         this.head.prev = newNode;  // new node assign in prev value
-//     }
-
-//     this.head = newNode; // in both case head is pointing the newNode
-// }
-
-
+// Insert at the begining 
 DoublyLinkedList.prototype.insertAtBeginning = function(data){
     const newNode = new Node(data, this.head, null)
     if(this.head !== null){
@@ -41,4 +28,37 @@ DoublyLinkedList.prototype.insertAtBeginning = function(data){
         this.tail = newNode
     }
 
+}
+
+// Insert at the end
+DoublyLinkedList.prototype.intertAtEnd = function(data){
+    const newNode = new Node(data, null, this.tail) // next ki value null tabhi to tail end hoga jab uska next null ko point karega or jo prev value hogi vo tail value hogi
+
+    if(this.tail !== null){ // if tail has value so tail next value point the new node 
+        this.tail.next = newNode
+    }
+
+    this.tail = newNode; // in both case if tail is null of tail has value tail pointing the newNode
+
+    if(this.head === null){ // if in case head is null so, head value update in case if insert at begining then value head is null to ek value to hai na ye baat to head ko batani padegi
+        this.head = newNode;
+    }
+}
+
+
+
+
+// delete at the first node 
+DoublyLinkedList.prototype.deleteFirstNode = function(){
+    if(!this.head){
+        return // list is empty
+    }
+
+    if(this.head === this.tail){ // it means only one value in the list
+        this.head = null 
+        this.tail = null
+    }else{ // list has value
+        this.head = this.head.next 
+        this.head.prev = null
+    }
 }
