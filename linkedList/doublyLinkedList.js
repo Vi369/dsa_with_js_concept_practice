@@ -83,3 +83,30 @@ DoublyLinkedList.prototype.deleteLastNode = function(){
         this.tail.next = null
     }
 }
+
+// reverse the list 
+DoublyLinkedList.prototype.reverse = function(){
+    if(!this.head){
+        return // list is empty
+    }
+    if(this.head === this.tail){
+        return // because list has only one value
+    }
+
+    let current = this.head
+
+    while(current){
+        const swap = current.next 
+        current.next = current.prev
+        current.prev = swap
+
+        // move to the next node
+        current = current.prev
+    }
+
+    // update the tail and head value
+    const tempHead = this.head
+    this.head = this.tail
+    this.tail = tempHead
+
+}
