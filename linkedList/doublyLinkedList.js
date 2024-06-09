@@ -45,6 +45,11 @@ DoublyLinkedList.prototype.intertAtEnd = function(data){
     }
 }
 
+// insert at the given after node
+DoublyLinkedList.prototype.insertGivenAfter = function(prevNode, data){
+
+}
+
 
 
 
@@ -60,5 +65,21 @@ DoublyLinkedList.prototype.deleteFirstNode = function(){
     }else{ // list has value
         this.head = this.head.next 
         this.head.prev = null
+    }
+}
+
+
+// delete at the last value
+DoublyLinkedList.prototype.deleteLastNode = function(){
+    if(!this.tail){
+        return // dll is empty
+    }
+
+    if(this.head === this.tail){// it means only one value in the list
+        this.head = null
+        this.tail = null
+    }else{
+        this.tail = this.tail.prev
+        this.tail.next = null
     }
 }
