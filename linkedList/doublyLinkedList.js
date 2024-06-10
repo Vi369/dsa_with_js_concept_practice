@@ -46,8 +46,26 @@ DoublyLinkedList.prototype.intertAtEnd = function(data){
 }
 
 // insert at the given after node
-DoublyLinkedList.prototype.insertGivenAfter = function(prevNode, data){
+DoublyLinkedList.prototype.insertAfterAt = function(prevNode, data){
+    if(!prevNode){
+        return "Provide valid Prenode / prenode will not be empty! "
+    }
 
+    // creating node
+    const newNode = new Node(data, prevNode.next, prevNode)
+
+    
+    // first case if ginev node is last node
+    if(prevNode.next == null){
+        this.tail = newNode
+    }
+
+    // second case if given node is not last node then
+    if(prevNode.next !== null){
+        prevNode.next.prev = newNode
+    }
+
+    prevNode.next = newNode
 }
 
 
