@@ -79,7 +79,7 @@ class BinarySearchTree{
     // in pre and post order traversal 
     inorderTraversal(){
         const result = []
-        this.inorderTraversal(this.root, result)
+        this.inorder(this.root, result)
         return result
     }
 
@@ -104,7 +104,51 @@ class BinarySearchTree{
             this.preOrder(node.right, result)
         }
     }
+
+    // Post order traversal 
+    postOrderTraver(){
+        const result = []
+        this.postOrder(this.root, result)
+        return result
+    }
+
+    postOrder(node, result){
+        if(node !==null){
+            this.postOrder(node.left, result)
+            this.postOrder(node.right, result)
+            result.push(node.key)
+        }
+    }
 }
+
+// 
+
+const bst = new BinarySearchTree();
+bst.insert(100)
+bst.insert(80)
+bst.insert(10)
+bst.insert(90)
+bst.insert(50)
+bst.insert(70)
+bst.insert(60)
+bst.insert(40)
+bst.insert(30)
+
+const inorder = bst.inorderTraversal();
+const preOrder = bst.preOrderTraversal()
+const postOrder = bst.postOrderTraver()
+
+inorder.map((data)=>{
+    console.log("inorder:->", data)
+})
+
+preOrder.map((data)=>{
+    console.log("preOrder:->", data)
+})
+
+postOrder.map((data)=>{
+    console.log("postOrder:->", data)
+})
 
 
 
