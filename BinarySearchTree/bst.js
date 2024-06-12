@@ -62,7 +62,7 @@ class BinarySearchTree{
                 return node.left 
             }else{ // root has 2 child
                 let tempNode = this.findMinNode(node.right) // because we want rigth minimun node we traverse rigth root node in left side
-
+                node.key = tempNode.key;
                 node.right = this.deleteNode(node.right, tempNode.key) // deletion change finding in right ,remove the tempnode key
             }
         }
@@ -76,9 +76,22 @@ class BinarySearchTree{
         return node
     }
 
+    // in pre and post order traversal 
+    inorderTraversal(){
+        const result = []
+        this.inorderTraversal(this.root, result)
+        return result
+    }
 
+    inorder(node, result){
+        if(node !== null){
+            this.inorder(node.left, result)
+            result.push(node.key)
+            this.inorder(node.right, result)
+        }
+    }
 }
 
-// usage example 
+
 
 
