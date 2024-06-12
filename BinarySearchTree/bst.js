@@ -90,6 +90,20 @@ class BinarySearchTree{
             this.inorder(node.right, result)
         }
     }
+    // pre order traversal 
+    preOrderTraversal(){
+        const result = []
+        this.preOrder(this.root, result)
+        return result
+    }
+
+    preOrder(node, result){
+        if(node !== null){
+            result.push(node.key)
+            this.preOrder(node.left, result)
+            this.preOrder(node.right, result)
+        }
+    }
 }
 
 
