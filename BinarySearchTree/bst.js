@@ -12,31 +12,6 @@ class BinarySearchTree{
         this.root = null
     }
 
-    // insert(key){
-    //     const newNode = new BSTNode(key);
-    //     if(this.root === null){
-    //         this.root = newNode;
-    //     }else{
-    //         this.insertMethod(this.root, newNode)
-    //     }
-    // }
-
-    // insertMethod(node, newNode){ // node means this.root
-    //     if(newNode.key < node.key){
-    //         if(this.left === null){
-    //             this.left = newNode
-    //         }else(
-    //             this.insertMethod(this.left, newNode)
-    //         )
-    //     }else{
-    //         if(this.right === null){
-    //             this.right = newNode
-    //         }else{
-    //             this.insertMethod(this.right, newNode)
-    //         }
-    //     }
-    // }
-
     insert(key){
         const newNode = new BSTNode(key);
         if(this.root === null){// it means this is the first value in bst
@@ -103,10 +78,6 @@ class BinarySearchTree{
 
 
 }
-
-
-
-
 
 // usage example 
 
