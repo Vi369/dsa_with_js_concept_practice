@@ -126,13 +126,13 @@ LinkedList.prototype.deleteByKey = function(key){
     }
 
     let currentNode = this.head;
-    while(!currentNode.next.data === key){
-        if(currentNode.next === null){
-            throw new Error("Key not Found in list")
-        }
-        currentNode = currentNode.next;
-    }
-    currentNode.next = currentNode.next.next;
+    // while(!currentNode.next.data === key){
+    //     if(currentNode.next === null){
+    //         throw new Error("Key not Found in list")
+    //     }
+    //     currentNode = currentNode.next;
+    // }
+    // currentNode.next = currentNode.next.next;
 
 
     // sir jii wala logic 
@@ -143,7 +143,6 @@ LinkedList.prototype.deleteByKey = function(key){
         }
         currentNode = currentNode.next;
     }
-
 
 }
 
@@ -197,22 +196,38 @@ LinkedList.prototype.reverseList = function(){
     this.head = prev;
 }
 
+// const list = new LinkedList();
+
+// list.insertAtBeginning({ name: "Alice", age: 30 })
+// list.insertAtBeginning({ name: "Bob", age: 25 })
+// // list.insertAtEnd({c:30})
+// // list.insertAtEnd({d:50})
+
+// const printList = list.printList();
+
+// printList.forEach((data)=>{
+//     console.log(data)
+// })
+
+
+
+// // reverse the list 
+// list.reverseList()
+
+// console.log(JSON.stringify(list));
+
+
 const list = new LinkedList();
 
-list.insertAtBeginning({ name: "Alice", age: 30 })
-list.insertAtBeginning({ name: "Bob", age: 25 })
-// list.insertAtEnd({c:30})
-// list.insertAtEnd({d:50})
+list.insertAtBeginning(5)
+list.insertAtBeginning(4)
+list.insertAtBeginning(3)
+list.insertAtBeginning(2)
+list.insertAtBeginning(1)
+// list.insertAtEnd(30)
 
-const printList = list.printList();
+console.log(JSON.stringify(list))
 
-printList.forEach((data)=>{
-    console.log(data)
-})
+list.deleteByKey(4)
 
-// reverse the list 
-list.reverseList()
-
-console.log(JSON.stringify(list));
-
-
+console.log(JSON.stringify(list))

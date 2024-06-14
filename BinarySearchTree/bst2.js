@@ -125,6 +125,7 @@ BinarySearchTree.prototype.findMinNode() = function(rootNode){
     return rootNode;
 }
 
+// search value exist or not  TODO: 
 
 
 // usage example 
