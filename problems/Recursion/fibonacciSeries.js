@@ -12,19 +12,29 @@ function fibonacci(num){
     return n1
 }
 
-console.log(fibonacci(5))
-console.log(fibonacci(6))
-console.log(fibonacci(8))
+// console.log(fibonacci(5))
+// console.log(fibonacci(6))
+// console.log(fibonacci(8))
 
 
 // recursive way 
 function recursiveFibonacci(num){
+    // console.log(`current num:${num}`)
     if(num <= 1){
         return num
     }
-    return (recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2));
+    
+    let num1 = recursiveFibonacci(num-1);
+    // console.log("recursive call num1 unwinding value :",num1)
+
+    let num2 = recursiveFibonacci(num-2);
+    // console.log("recursive call num1 unwinding value :",num2)
+
+    return (num1 + num2)
+    
+    // return (recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2));
 }
 
 console.log(recursiveFibonacci(5))
-console.log(recursiveFibonacci(6))
-console.log(recursiveFibonacci(8))
+// console.log(recursiveFibonacci(6))
+// console.log(recursiveFibonacci(8))
