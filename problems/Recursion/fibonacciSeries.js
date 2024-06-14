@@ -26,10 +26,8 @@ function recursiveFibonacci(num){
     
     let num1 = recursiveFibonacci(num-1);
     // console.log("recursive call num1 unwinding value :",num1)
-
     let num2 = recursiveFibonacci(num-2);
     // console.log("recursive call num1 unwinding value :",num2)
-
     return (num1 + num2)
     
     // return (recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2));
