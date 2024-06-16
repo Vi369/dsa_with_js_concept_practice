@@ -34,4 +34,13 @@ function gcdWithReminderApproach(a, b){
 
 console.log(gcdWithReminderApproach(12,18))
 
-// TODO: itterative approach 
+//itterative approach 
+function itterativeGcd(num1, num2){ // ex - 42, 56 dry run
+    while(num2 !=0){
+        const temp = num2 // temp = 56 st2 temp => 42 st3 temp  = 14
+        num2 = num1%num2  // num2 = 42%56 => 42 st2 num2= 56%42=> 14 st3 42%14=> 0
+        num1 = temp        // num1 = 56 st2 42 st3 14
+    }
+    return num1
+}
+
