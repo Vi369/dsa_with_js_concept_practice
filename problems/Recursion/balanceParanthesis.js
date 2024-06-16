@@ -1,10 +1,5 @@
 // problem : ["(", "(", ")", ")", "(", ")"]
 
-
-/**
- * 
- */
-
 function balanceParanthesis(array, startIndex = 0, counter = 0){
 
     if(startIndex === array.length){
@@ -59,4 +54,34 @@ function itterativeBalancePranthesis(arr){
 // console.log(itterativeBalancePranthesis(arr1))
 
 
-// TODO: check all type prenthesi using stack 
+// check all type prenthesi using stack 
+
+const checkBalanceParenthesis = (array)=>{
+    let stack = [];
+
+    for(let i=0; i< array.length; i++){
+        let stackLastPopValue = stack[stack.length -1] 
+
+        if(array[i] === "(" || array[i] === "{" || array[i] === "["){
+            stack.push(array[i])
+        }else if(
+            stackLastPopValue === "(" && array[i] === ")" || 
+            stackLastPopValue === "{" && array[i] === "}" || 
+            stackLastPopValue === "[" && array[i] === "]"
+        ){
+            stack.pop();
+        } else{ //tackLastPopValue === ")" || stackLastPopValue === "}" || stackLastPopValue === "]" 
+            return false
+        }    
+    }
+
+    return stack.length === 0
+}
+
+
+// example 
+let arr3 = ["(", ")", "{","[","]","}"]
+let arr4 = ["}","(", ")", "{","[","]","}"]
+
+console.log(checkBalanceParenthesis(arr3))
+console.log(checkBalanceParenthesis(arr4))
