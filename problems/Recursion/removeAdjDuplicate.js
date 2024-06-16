@@ -34,10 +34,31 @@ function recursiveRAD(inputString){
 // console.log(recursiveRAD("Hherro"))
 
 
+
+// stack approach 
+function stackApproachRemoveDuplicate(inputString){
+    let stack = []
+
+    for(const character of inputString){
+        if(stack.length === 0 || character !== stack[stack.length - 1]){
+            stack.push(character)
+        }else if(stack.length > 1 && character === stack[stack.length -1]){
+            stack.pop()
+        }
+    }
+
+    return stack.join("")
+}
+
+console.log(stackApproachRemoveDuplicate("vvikaaasssss"))
+
+// TODO: using stack to remove all duplicate
 /** remove both => input = "aabccdee" 
  * Output => "bde"
 */
+// algo => char not == to all the string in the string
 
-// TODO: using stack to remove all duplicate
+function removeAllDuplicateAdjecent(inputString){
 
+}
 
