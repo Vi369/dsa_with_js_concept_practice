@@ -128,3 +128,40 @@ DoublyLinkedList.prototype.reverse = function(){
     this.tail = tempHead
 
 }
+
+
+
+// Delete node by Given key 
+DoublyLinkedList.prototype.deleteByGivenKey = function(key){
+
+    if(!this.head){
+        return "Nothing in the list" // [] 
+    }
+
+    // case1:
+    if(this.head.data === key){
+        this.head = this.head.next
+        this.head.prev = null
+    }
+
+    //case 2:
+    if(this.tail.data === key){
+        this.tail = this.tail.prev
+        this.tail.next = null
+    }
+
+    // case3:
+
+    let current = this.head
+    while(current.next!==null){
+        if(current.next.data === key){
+            current.next = current.next.next;
+            current.next.next.prev = current
+            return
+        }
+        // update the current value
+        current = current.next;
+    }
+
+    return "Key Not Found";
+}
