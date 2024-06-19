@@ -23,8 +23,9 @@ function treeSumBFS(root){
     let queue = [root]
 
     while(queue.length>0){
-        sum += queue.shift()
-
+        const node = queue.shift()
+        sum += node.key
+        
         if(root.right !==null){
             queue.push(root.right)
         }
