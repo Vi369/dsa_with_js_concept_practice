@@ -45,15 +45,15 @@ function directedPathDFS(graph, start,dest, visited = new Set()){
     return false
 }
 
-console.log(directedPathDFS(graph, 'a', 'f')) // false
-console.log(directedPathDFS(graph, 'a', 'd')) // true
+// console.log(directedPathDFS(graph, 'a', 'f')) // false
+// console.log(directedPathDFS(graph, 'a', 'd')) // true
 
 
 
 function hasPathBFS(graph, start, dest, visited = new Set()){
     const queue = [start]
 
-    while(queue.length >0){
+    while(queue.length > 0){
         const node = queue.shift();
 
         if(node === dest){
@@ -71,3 +71,29 @@ function hasPathBFS(graph, start, dest, visited = new Set()){
 }
 
 
+// console.log(hasPathBFS(graph, 'a', 'f')) 
+// console.log(hasPathBFS(graph, 'a', 'd')) 
+
+
+
+function recursiveHasPath (graph, start, dest, visited = new Set()){
+    console.log(`Current node: ${start}`);
+    if(start === dest){
+        return true
+    }
+
+    if(visited.has(start)){
+        return false
+    }
+    
+    visited.add(start)
+    for(const neighbour of graph[start]){
+        console.log(`  Exploring neighbour: ${neighbour}`);
+        if(recursiveHasPath(graph, neighbour, dest, visited) === true){
+            return true
+        }
+    }
+    return false
+}
+
+console.log(recursiveHasPath(graph, 'a','e'))
