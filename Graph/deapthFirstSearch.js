@@ -27,8 +27,22 @@ function deapthFirstSearchItterativeWay(graph, start){
     return visited
 }
 
-console.log(deapthFirstSearchItterativeWay(graph, 'a'))
+// console.log(deapthFirstSearchItterativeWay(graph, 'a'))
 
 
 
 
+// recursive way 
+// start => currentNode
+function deapthFSR(graph , start, visited = new Set()){
+    if(!visited.has(start)){
+        visited.add(start)
+        for(const neighbour of graph[start]){
+            deapthFSR(graph, neighbour, visited)
+        }
+    }
+    return visited
+}
+
+
+console.log(deapthFSR(graph, 'a'))
