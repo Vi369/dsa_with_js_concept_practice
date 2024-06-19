@@ -49,16 +49,6 @@ function stackApproachRemoveDuplicate(inputString){
 
     return stack.join("")
 }
-
 console.log(stackApproachRemoveDuplicate("vvikaaasssss"))
 
-// TODO: using stack to remove all duplicate
-/** remove both => input = "aabccdee" 
- * Output => "bde"
-*/
-// algo => char not == to all the string in the string
-
-function removeAllDuplicateAdjecent(inputString){
-
-}
 
