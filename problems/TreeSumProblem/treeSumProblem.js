@@ -1,5 +1,13 @@
 // DFS way 
 
+class TreeNode {
+    constructor(key) {
+      this.key = key;
+      this.left = null;
+      this.right = null;
+    }
+  }
+
 function treeSum(root){
     if(root === null){
         return 0
@@ -25,15 +33,26 @@ function treeSumBFS(root){
     while(queue.length>0){
         const node = queue.shift()
         sum += node.key
-        
-        if(root.right !==null){
-            queue.push(root.right)
+
+        if(node.right !==null){
+            queue.push(node.right)
         }
 
-        if(root.left !== null){
-            queue.push(root.left)
+        if(node.left !== null){
+            queue.push(node.left)
         }
 
     }
     return sum;
 }
+
+const root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+
+// console.log("Sum of tree nodes:", treeSum(root));
+
+console.log("Sum of tree nodes:", treeSumBFS(root));
+
