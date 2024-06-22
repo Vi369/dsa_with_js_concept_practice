@@ -14,7 +14,7 @@ var mergeAlternately = function(word1, word2) {
         mergedStr +=word1[i]
         i++
     }
-    while(j<word2){
+    while(j<word2.length){
         mergedStr +=word2[j]
         j++
     }
