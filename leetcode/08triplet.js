@@ -5,7 +5,7 @@ var increasingTriplet = function(nums) {
     for(let i=0; i< nums.length; i++){
         if(nums[i] <= smallestValue){
             smallestValue = nums[i]
-        }else if(secondSmallestValue < nums[i+1]){
+        }else if( nums[i+1] < secondSmallestValue){
             secondSmallestValue = nums[i+1]
         }else{
             return true
