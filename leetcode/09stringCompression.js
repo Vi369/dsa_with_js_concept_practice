@@ -10,12 +10,10 @@ var compress = function(chars) {
         }
         let count = j - i;
         chars[index++] = chars[i]
-        if(count > 9){
+        if(count > 1){
             for(const str of count.toString()){
                 chars[index++] = str;
             }
-        }else{
-            chars[index++] = count;
         }
         i = j
     }
