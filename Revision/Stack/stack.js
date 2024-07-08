@@ -5,7 +5,6 @@ class Stack{
     }
 }
 
-
 // push data on the stack
 Stack.prototype.push = function(data){
     this.stack.push(data)
@@ -49,44 +48,71 @@ Stack.prototype.valueContains = function(value){
 // print the stack 
 Stack.prototype.printStack = function(){
     return this.stack.slice()
-
+    // const values = []
     // if(this.isEmpty()){
     //     return [] // no value Empty stack
     // }
-    // const values = []
     // for(let i = 0; i < this.size(); i++){
     //     values.push(this.stack[i])
     // }
     // return values;
-    
 }
 
 
 // usage example 
-const bundle = new Stack()
-bundle.push("fruit")
-bundle.push("cars")
-bundle.push("papers")
-bundle.push("mobiles")
+// const bundle = new Stack()
+// bundle.push("fruit")
+// bundle.push("cars")
+// bundle.push("papers")
+// bundle.push("mobiles")
 
-const getAllValues = bundle.printStack()
+// const getAllValues = bundle.printStack()
 
-getAllValues.forEach((data)=>{
-    console.log(data + '\n')
-})
+// getAllValues.forEach((data)=>{
+//     console.log(data + '\n')
+// })
 
 
 // example 2 
-const numbers = new Stack()
-numbers.push(1)
-numbers.push(2)
-numbers.push(3)
-numbers.push(4)
+// const numbers = new Stack()
+// numbers.push(1)
+// numbers.push(2)
+// numbers.push(3)
+// numbers.push(4)
+// const Values = numbers.printStack()
 
+// Values.forEach((data)=>{
+//     console.log(data + '\n')
+// })
 
-const Values = numbers.printStack()
+/** real-world example 
+ * given expression is balance parenthisis or not */ 
 
-Values.forEach((data)=>{
-    console.log(data + '\n')
-})
+function isBalanced(strings){
+    const stack = []
+
+    for(const char of strings){
+        if(char === '(' || char === '[' || char === '{'){
+            stack.push(char)
+        } else if(char === ')' || char === ']' || char === '}'){
+            if(stack.length === 0){
+                return false
+            }
+
+            let top = stack.pop();
+            if(
+                char === ')' && top !=='(' || 
+                char === ']' && top !=='[' || 
+                char === '}' && top !=='{'
+            ){
+                return false
+            }
+        }
+    }
+    return stack.length === 0
+}
+
+console.log(isBalanced("{[()]}")); // true
+console.log(isBalanced("{[(])}")); // false
+console.log(isBalanced("{[}"));    // false
 
