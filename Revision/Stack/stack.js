@@ -12,11 +12,17 @@ Stack.prototype.push = function(data){
 
 // remove data on the stack
 Stack.prototype.pop = function(){
+    if(this.stack.isEmpty()){
+        return [];
+    }
     return this.stack.pop()
 }
 
 // give the first data that pop out on the stack first 
 Stack.prototype.peek = function(){
+    if(this.stack.isEmpty()){
+        return [];
+    }
     return this.stack[this.stack.length - 1]
 }
 

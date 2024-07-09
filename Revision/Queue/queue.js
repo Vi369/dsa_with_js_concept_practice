@@ -14,11 +14,17 @@ Queue.prototype.enqueue = function(data){
 
 // dequeue the data 
 Queue.prototype.dequeue = function(){
+    if(this.queue.isEmpty()){
+        return [];
+    }
     return this.queue.shift()
 }
 
 // peek value of queue 
 Queue.prototype.peek = function(){
+    if(this.queue.isEmpty()){
+        return [];
+    }
     return this.queue[0]
 }
 
