@@ -113,5 +113,60 @@ list.insertAfterAt(data, preNode);
 console.log(list.search('wonder women')) // true
 
 /**
- * 
+ * delete node
  */
+
+// Implement method to delete first node
+LinkedList.prototype.unlinkFirstNode = function(){
+    if(!this.head){
+        return 'List not Exist!'
+    }else{
+        this.head = this.head.next;
+    }
+}
+
+list.unlinkFirstNode()
+console.log("List after deleting First node:",list.printList());
+
+// Implement method to delete last node 
+LinkedList.prototype.unlinkLastNode = function(){
+    if(!this.head){
+        return "List not Exist!"
+    }else if(this.head.next === null){
+        this.head = null
+    }else{
+        let secondLastNode = this.head;
+        while(secondLastNode.next.next !== null){
+            secondLastNode = secondLastNode.next;
+        }
+        secondLastNode.next = null
+    }
+}
+
+list.unlinkLastNode()
+console.log("List after deleting last node:", list.printList())
+
+
+// Implement method to delete node by given key
+LinkedList.prototype.unlinkGivenKey = function(key){
+    if(!this.head){
+        return "List not Exist!"
+    }else if(this.head.data === key){
+        this.head = this.head.next;
+    }else{
+        let  currentNode = this.head;
+        while(currentNode.next !== null){
+            if(currentNode.next.data === key){
+                currentNode.next = currentNode.next.next;
+                return
+            }
+            currentNode = currentNode.next;
+        }
+        return "Key Not Found";
+    }
+}
+
+const result = list.unlinkGivenKey('krish')
+console.log("krish key not exist in list result : >",result)
+list.unlinkGivenKey('aquaman')
+console.log("List after deleting given key node:", list.printList())
