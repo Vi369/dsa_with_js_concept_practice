@@ -170,3 +170,28 @@ const result = list.unlinkGivenKey('krish')
 console.log("krish key not exist in list result : >",result)
 list.unlinkGivenKey('aquaman')
 console.log("List after deleting given key node:", list.printList())
+
+
+
+/**
+ * Reverse the List
+ */
+
+// Implement method to reverse the list
+LinkedList.prototype.reverseTheList = function(){
+    let current = this.head
+    let next = null
+    let prev = null
+
+    while(current !== null){
+        next = current.next;
+        current.next = prev
+        prev = current
+        current = next
+    };
+
+    this.head = prev;
+}
+
+list.reverseTheList();
+console.log("reverse list:",list.printList());
