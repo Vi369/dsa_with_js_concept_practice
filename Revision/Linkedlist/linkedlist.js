@@ -195,3 +195,20 @@ LinkedList.prototype.reverseTheList = function(){
 
 list.reverseTheList();
 console.log("reverse list:",list.printList());
+
+
+// Implement method to insert node 
+LinkedList.prototype.insertNode = function(data){
+    const newNode = new Node(data);
+    let current = this.head;
+    if(!current){
+        this.head = newNode
+    }
+
+    while(current.next !== null){
+        current = current.next
+    }
+    current.next = newNode;
+}
+
+// TODO: remove node
