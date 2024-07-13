@@ -197,7 +197,7 @@ list.reverseTheList();
 console.log("reverse list:",list.printList());
 
 
-// Implement method to insert node 
+// Implement method to insert node (same functionality insert node at the end)
 LinkedList.prototype.insertNode = function(data){
     const newNode = new Node(data);
     let current = this.head;
@@ -210,5 +210,7 @@ LinkedList.prototype.insertNode = function(data){
     }
     current.next = newNode;
 }
+list.insertNode('Shazam')
+console.log(list.printList())
 
-// TODO: remove node
+//Implement real world use case example 
