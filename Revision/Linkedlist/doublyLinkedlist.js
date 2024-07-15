@@ -142,3 +142,51 @@ DoublyLinkedList.prototype.unlinkLastValue = function(){
     this.tail.next = null;
 }
 
+/** usage Example */ 
+list.unlinkLastValue()
+console.log("After deleting last Value List: ", list.printList())
+
+
+// Implement method to Delete node by given secific key 
+DoublyLinkedList.prototype.UnlinkGivenKey = function(key){
+    if(!this.head){
+        return "List Not Exist!"
+    }
+
+    if(this.head.data === key){
+        this.head = this.head.next;
+        this.head.prev = null;
+    }
+
+    if(this.tail.data === key){
+        this.tail = this.tail.prev;
+        this.tail.next = null
+    }
+
+    let currentNode = this.head;
+    while(currentNode.next !==null){
+        if(currentNode.next.data === key){
+            currentNode.next = currentNode.next.next;
+            currentNode.next.prev = currentNode;
+            return;
+        }
+        currentNode = currentNode.next;
+    }
+    return "Key not Found!"
+}
+
+// usage example
+list.UnlinkGivenKey('jumme ki raat');
+console.log(list.printList());
+
+// added some more data to the list 
+list.insertAtEnd('raang de basanti')
+list.insertAtEnd('munni badnam')
+list.insertAtEnd('pinki hai paise walo ki')
+console.log(list.printList())
+
+
+// Implement method to reverse the list
+DoublyLinkedList.prototype.reverseList = function(){
+    
+}
