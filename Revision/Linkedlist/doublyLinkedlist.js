@@ -32,6 +32,7 @@ class DoublyLinkedList{
             if(current.data === key){
                 return true;
             }
+            current = current.next;
         }
         return false;
     }
@@ -52,6 +53,7 @@ DoublyLinkedList.prototype.insertAtFront = function(data){
 }
 
 // initilize DouublyLinkedList
+/** usage example */
 const list = new DoublyLinkedList();
 
 list.insertAtFront('tere sang yara');
@@ -72,30 +74,71 @@ DoublyLinkedList.prototype.insertAtEnd = function(data){
         this.head = newNode;
     }
 }
-
+/** usage example */
 list.insertAtEnd('Udta hi phiru');
 list.insertAtEnd('kya huwa tera wada');
 console.log(list.printList());
 
 // Implement method to insert node after the given position 
 DoublyLinkedList.prototype.insertAfterThat = function(data, prevNode){
-    // create node
+    if(!prevNode){
+        return "Provided node is Empty!"
+    }
+
+    // create node 
     const newNode = new Node(data, prevNode.next, prevNode);
 
-    if(prevNode.next === null){
-        prevNode.next = newNode;
-        // this.tail = newNode;
-    }
-
-    if(prevNode !==null){
+    if(prevNode.next !== null){
         prevNode.next.prev = newNode;
-        prevNode.next = newNode;
-        // this.tail = newNode;
     }
 
-    this.tail = newNode;
+    prevNode.next = newNode;
+
+    if(newNode.next === null){
+        this.tail = newNode;
+    }
 }
+/** usage example */
 const prevNode = list.head.next; // data : tere sang yara
 list.insertAfterThat('jumme ki raat', prevNode)
-console.log(list.printList())
+console.log("After added node given position:",list.printList())
+
+// Implement method to Delete first Node 
+DoublyLinkedList.prototype.unlinkFirstValue = function(){
+    if(!this.head){
+        return [] // list not exist
+    }
+
+    if(this.head === this.tail){ // only one value in the list
+        this.head = null;
+        this.tail = null;
+        return
+    }
+
+    this.head = this.head.next;
+    this.head.prev = null
+}
+
+/** usage example */
+list.unlinkFirstValue()
+console.log("After deleting first value List:",list.printList());
+console.log(list)
+console.log('head',list.head)
+console.log('tail',list.tail)
+
+// Implement method to delete Last node in the list
+DoublyLinkedList.prototype.unlinkLastValue = function(){
+    if(!this.tail){
+        return [] // list not exist
+    }
+
+    if(this.head === this.tail){ 
+        this.head = null;
+        this.tail = null;
+        return;
+    }
+
+    this.tail = this.tail.prev;
+    this.tail.next = null;
+}
 
