@@ -188,5 +188,32 @@ console.log(list.printList())
 
 // Implement method to reverse the list
 DoublyLinkedList.prototype.reverseList = function(){
-    
+    if(!this.head){
+        return "List is Empty!"
+    }
+
+    if(this.head === this.tail){
+        return "List has only One value."
+    }
+
+    let current = this.head;
+    let temp = 0;
+    while(current !== null){
+        temp = current.prev;
+        current.prev = current.next;
+        current.next = temp;
+
+        current = current.prev;
+    }
+
+    // update the head and tail value
+    if(temp !==null){
+        // this.tail = this.head
+        // this.head = temp.prev;
+        temp = this.head
+        this.head = this.tail
+        this.tail = temp;
+    }
 }
+list.reverseList()
+console.log(list.printList());
