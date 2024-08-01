@@ -36,3 +36,5 @@ function islandConunt(grid){
 
     return count;
 };
+
+// example 
