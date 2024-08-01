@@ -156,7 +156,7 @@ DoublyLinkedList.prototype.deleteByGivenKey = function(key){
     while(current.next!==null){
         if(current.next.data === key){
             current.next = current.next.next;
-            current.next.next.prev = current
+            current.next.prev = current 
             return
         }
         // update the current value
